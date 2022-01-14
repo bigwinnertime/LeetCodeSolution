@@ -16,15 +16,15 @@ public class TestJVMLoad {
          * 3、定义类数组，不会引起类的初始化。
          *
          */
-        System.out.println(org.bigwinner.jvm.ChildClass.value);   // 打印结果： 父类的静态代码块被执行   10
-        System.out.println(org.bigwinner.jvm.FatherClass.val);    // 打印结果： 100
-        org.bigwinner.jvm.FatherClass[] fc = new org.bigwinner.jvm.FatherClass[10];  // 打印结果： 无输出
+        System.out.println(ChildClass.value);   // 打印结果： 父类的静态代码块被执行   10
+        System.out.println(FatherClass.val);    // 打印结果： 100
+        FatherClass[] fc = new FatherClass[10];  // 打印结果： 无输出
         /**
          * 主动使用
          * 通过new关键字实例化对象/读取或设置类的静态变量/调用类的静态方法 会触发类的初始化
          */
-        org.bigwinner.jvm.FatherClass.print(); // 父类的静态代码块被执行  父类的静态方法被执行
-        System.out.println(org.bigwinner.jvm.FatherClass.value);    // 打印结果： 父类的静态代码块被执行   10
+        FatherClass.print(); // 父类的静态代码块被执行  父类的静态方法被执行
+        System.out.println(FatherClass.value);    // 打印结果： 父类的静态代码块被执行   10
     }
 }
 
@@ -39,7 +39,7 @@ class FatherClass {
     }
 }
 
-class ChildClass extends org.bigwinner.jvm.FatherClass {
+class ChildClass extends FatherClass {
     static {
         System.out.println("子类的静态代码块被执行");
     }

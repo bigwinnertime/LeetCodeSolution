@@ -102,7 +102,4 @@ public class Synchronized {
         },"方法锁bbbbb").start();
 
     }
-
-
-
 }
